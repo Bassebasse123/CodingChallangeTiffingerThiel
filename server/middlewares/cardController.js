@@ -5,9 +5,7 @@ import mongoose from "mongoose";
 
 export const getCards = async (req, res) => {
   try {
-    await mongoose.connect(
-      "mongodb+srv://dammannbastian:Lollipop00!@bastiandammann.3rwo0yn.mongodb.net/tiffingerthiel"
-    );
+    await mongoose.connect(process.env.DB_URI);
     const cards = await Card.find();
     const response = {
       success: true,
